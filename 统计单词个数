@@ -1,0 +1,33 @@
+#include<stdio.h> 
+#include<ctype.h>
+
+int isfuhao (char ch);
+//解决数组装不下的问题 
+int main()
+{
+	char ch;
+	int p = 0 ;
+	int n = 1 ,flag = 0 ;
+	while(n)
+	{
+		ch = getchar();	
+		if (isfuhao(ch))
+		{
+			flag = 0 ;	
+		}
+		else 
+		{
+			if (flag == 0)
+				p++;
+				flag = 1;
+		}
+		if (ch == '\n')
+			n = 0 ;
+	}
+	printf("%d",p);
+	return 0;
+}
+int isfuhao (char ch)
+{
+	return !(ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z');
+}
